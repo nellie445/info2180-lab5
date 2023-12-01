@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root
+{
+
+  --black: #1a202c;
+  --lightGrey: #eeeff3;
+  --grey: rgba(224, 207, 203, 0.482);
+  --lighterBlue: #4a6cab;
+  --darkBlue: #184aa7;
+  --white: #ffffff;
+  --mediumBlue: #0b2452;
+  
+}
+
+body 
+{
+
+    margin: 0;
+    font-size: 18px;
+    font-family: "Jost", sans-serif;
+
+}
+
+main
+{
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+
+}
+
+
+/* Section: Header */
+
+header 
+{
+
+  background-color: var(--darkBlue);
+  color: white;
+  padding: 50px;
+  text-align: center; 
+
+}
+
+header h1
+{
+
+  text-transform: capitalize;
+  margin: 0; 
+  font-size: 50px;
+
+}
+
+label
+{
+
+    display: none;
+
+}
+
+#controls 
+{
+
+    text-align: center; 
+
+}
+
+#country
+{
+
+    background-color: white;
+    color: rgba(6, 5, 5, 0.826);
+    height: 50px;
+    width: 850px;
+    border: 1px solid #6b728095;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;  
+    
+}
+
+#lookupcity
+{
+
+    background-color: var(--darkBlue);
+    margin-top: 15px;
+
+}
+
+#lookupcity:hover
+{
+
+    background-color: var(--mediumBlue);
+
+}
+
+#lookupcntry
+{
+
+    background-color: var(--lighterBlue);
+    margin-top: 15px;
+
+}
+
+#lookupcntry:hover
+{
+
+    background-color: var(--mediumBlue);
+
+}
+
+.btn
+{
+
+    color: white;
+    height: 50px;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;  
+
+}
+
+.result-table 
+{
+
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--lightGrey);
+    border-radius: 5px; 
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+    margin-top: 20px;  
+    font-size: 15px;
+    font-family: "Jost", san-serif
+
+}
+
+.result-table th
+{
+
+    background-color: var(--white);
+    border: none;
+    padding: 8px;
+    text-align: left;
+    padding: 10px;
+
+}
+
+.result-table td 
+{
+
+    border: none;
+    padding: 8px;
+    text-align: left;
+
+}
+
+.result-table tr:nth-child(even) 
+{
+
+    background-color: var(--white);
+
+}
+
+.result-table tr:nth-child(odd) 
+{
+
+    background-color: var(--lightGrey);
+
+}

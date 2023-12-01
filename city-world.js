@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Find the "Lookup Country" button by its ID
-    var lookupCountryButton = document.getElementById('lookupcntry');
+    // Wait for the DOM to be fully loaded
 
     // Find the "Lookup City" button by its ID
     var lookupCityButton = document.getElementById('lookupcity');
@@ -9,36 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Find the input field by its ID
     var countryInput = document.getElementById('country');
 
-    // Attach click event listener to the "Lookup Country" button
-    lookupCountryButton.addEventListener('click', function () {
-        performLookup('country');
-    });
-
     // Attach click event listener to the "Lookup City" button
-    lookupCityButton.addEventListener('click', function () {
-        performLookup('city');
-    });
+    lookupCityButton.addEventListener('click', performCityLookup);
 
     // Attach a keypress event listener to the input field
     countryInput.addEventListener('keypress', function (event) {
+
         // Check if the pressed key is "Enter"
         if (event.key === 'Enter') {
-            // Determine which button was clicked last and perform the lookup accordingly
-            if (lastClickedButton === 'country') {
-                performLookup('country');
-            } else {
-                performLookup('city');
-            }
+
+            performCityLookup();
+
         }
+
     });
 
-    // Variable to track the last clicked button
-    var lastClickedButton = 'country';
-
-    // Function to perform the lookup
-    function performLookup(lookupType) {
-        // Update the last clicked button
-        lastClickedButton = lookupType;
+    // Function to perform the city lookup
+    function performCityLookup() {
 
         // Get the value entered by the user
         var countryValue = countryInput.value.trim();
@@ -48,14 +34,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Define the callback function to handle the response
         xhr.onload = function () {
+
             // Find the result div by its ID
             var resultDiv = document.getElementById('result');
+
             // Update the result div with the response from the server
             resultDiv.innerHTML = xhr.responseText;
+
         };
 
-        // Construct the URL with the country and lookup type parameters
-        var url = 'world.php?country=' + encodeURIComponent(countryValue) + '&lookup=' + encodeURIComponent(lookupType);
+        // Construct the URL with the country parameter and set lookup to 'city'
+        var url = 'world.php?country=' + encodeURIComponent(countryValue) + '&lookup=city';
 
         // Open a GET request to the server
         xhr.open('GET', url, true);
@@ -63,5 +52,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // Send the request
         xhr.send();
     }
-
 });
